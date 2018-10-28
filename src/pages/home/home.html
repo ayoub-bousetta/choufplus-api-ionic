@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+ 
+
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+
+
+   <ion-card *ngFor="let result of results" (click)="onItemClick(result.vkey)">
+
+      <ion-item >
+        <ion-avatar item-start>
+          <img src='https://cdn.choufplus.com/videos/{{result.vkey}}/thumbs/240/{{result.vkey}}.jpg'>
+        </ion-avatar>
+        <h2>{{result.ch_title}}</h2>
+        <p>{{result.publish_datetime}}</p>
+      </ion-item>
+    </ion-card>
+  
+</ion-content>
